@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Chatbot</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+<form id="chatbot-form">
+    <input type="hidden" name="char1" value="{{ request.GET.char1 }}">
+    <input type="hidden" name="char2" value="{{ request.GET.char2 }}">
+    <input type="text" name="message" placeholder="Your message...">
+    <button type="submit">Send</button>
+</form>
+
+<div id="chat-container">
+    <!-- Chat messages will be displayed here -->
+</div>
+</body>
+<script>
+    $(document).ready(function() {
+        $('#chatbot-form').on('submit', function(event) {
+            event.preventDefault();
+
+            // Send an AJAX request to the ChatbotPostView
+            $.ajax({
+                url: '{% url "chatbot_post" %}',
+                method: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                success: function(data) {
+                    // Display the chatbot response
+                    var userMessage = $('#chatbot-form input[name="message"]').val();
+                    $('#chat-container').append('<p>{{ request.GET.char1 }}: ' + userMessage + '</p>');
+                    $('#chat-container').append('<p>{{ request.GET.char2 }}: ' + data.response + '</p>');
+
+                    // Clear the input field
+                    $('#chatbot-form input[name="message"]').val('');
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error:', xhr.responseText);
+                }
+            });
+        });
+    });
+</script>

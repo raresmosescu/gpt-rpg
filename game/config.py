@@ -1,3 +1,122 @@
-VIEW_MAIN = "main"
-VIEW_CONVERSATION = "conversation"
-VIEW_CHARACTERS = "characters"
+"""
+This file contains the configuration for the NPC generator.
+"""
+
+# The number of traits to generate for each personality.
+NUM_TRAITS = 3
+
+# Valid trait names and their opposites. First item in tuple is the positive
+TRAITS = {
+    "positive": [
+        "patient",
+        "honest",
+        "trustworthy",
+        "serious",
+        "optimistic",
+        "hardworking",
+        "kind",
+        "generous",
+        "friendly",
+        "caring",
+        "brave",
+        "adventurous",
+        "ambitious",
+        "humble",
+        "artistic",
+        "calm",
+        "charming",
+        "cheerful",
+        "clever",
+        "confident",
+        "cooperative",
+        "courageous",
+    ],
+    "negative": [
+        "impatient",
+        "liar",
+        "sneaky",
+        "suspicious",
+        "silly",
+        "pessimistic",
+        "lazy",
+        "mean",
+        "greedy",
+        "unfriendly",
+        "selfish",
+        "cowardly",
+        "arrogant",
+        "uncreative",
+        "bossy",
+        "anxious",
+        "careless",
+        "uncharming",
+        "grumpy",
+        "dumb",
+        "insecure",
+        "selfish",
+        "cowardly",
+        "aggressive",
+    ],
+    "neutral": [
+        "passive",
+        "content",
+        "careful",
+        "perfectionist",
+        "cautious",
+    ],
+}
+
+RANDOM_CHARACTER_NAMES = [
+    "Alice",
+    "Bob",
+    "Charlie",
+    "David",
+    "Eva",
+    "Frank",
+    "Grace",
+    "Henry",
+    "Isabella",
+    "Jack",
+    "Katie",
+    "Liam",
+    "Mia",
+    "Nathan",
+    "Olivia",
+    "Peter",
+    "Quinn",
+    "Rose",
+    "Samuel",
+    "Taylor",
+    "Ursula",
+    "Victor",
+    "Willow",
+    "Xavier",
+    "Yvonne",
+    "Zachary",
+]
+
+RELATIONSHIP_TYPES = [
+    "friend",
+    "enemy",
+    "lover",
+    "partner",
+    "parent",
+    "child",
+    "sibling",
+    "relative",
+    "acquaintance",
+    "coworker",
+    "boss",
+    "employee",
+    "ex-lover",
+    "hate",
+    "like",
+    "dislike",
+    "infatuation",
+]
+
+PROMPT_TYPES = [
+    "system",
+    "user",
+    "assistant",
+]
