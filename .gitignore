@@ -1,4 +1,5 @@
-*.sqlite3
+# ignore sqlite3 database in root folder but not in subfolders
+/*.sqlite3
 *.pyc
 *.pyo
 
@@ -10,3 +11,4 @@
 .env
 env/
 
+.DS_Store
