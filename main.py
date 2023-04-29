@@ -21,13 +21,13 @@ import asyncio
 async def main():
     await init_orm()
 
-    PLAYER = await Character.filter(is_player=True).first()
+    player = await Character.filter(is_player=True).first()
 
     await game.set_up_game()
 
-    UI = game.UserInterface(player=PLAYER)
+    ui = game.UserInterface(player=player)
 
-    await UI.main_view()
+    await ui.main_view()
 
 
 asyncio.run(main())
